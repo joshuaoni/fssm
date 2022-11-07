@@ -86,6 +86,13 @@
   padding-bottom: var(--fs-14);
   padding: var(--fs-14) var(--size-3);
   word-break: break-word;
+  border-right: 1px solid var(--d-bg);
+}
+
+.heading > div:nth-last-child(1),
+.row > div:nth-last-child(1),
+.row2 > div:nth-last-child(1) {
+  border: none;
 }
 
 .heading {
@@ -99,6 +106,7 @@
   display: flex;
   justify-content: center;
   text-align: center;
+  border-right: 1px solid var(--d-bg);
 }
 
 .cont {

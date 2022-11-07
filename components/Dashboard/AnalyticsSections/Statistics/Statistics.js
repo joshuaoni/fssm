@@ -37,7 +37,7 @@ const Statistics = () => {
             <Image height={40} width={40} src={ic1} alt='icon' />
           </div>
           <div>
-            <p>No of Docs Uploa.....</p>
+            <p>No of Docs Uploaded</p>
             {loading ?
               <div className={styles.justify_center}><CircularProgress /></div> :
               <h6>{stats['No Of Docs Uploaded']}</h6>}
@@ -48,7 +48,7 @@ const Statistics = () => {
             <Image height={40} width={40} src={ic2} alt='icon' />
           </div>
           <div>
-            <p>No of Docs Mapp.....</p>
+            <p>No of Docs Mapped</p>
             {loading ?
               <div className={styles.justify_center}><CircularProgress /></div> :
               <h6>{stats['No Of Docs Mapped']}</h6>}
@@ -59,7 +59,7 @@ const Statistics = () => {
             <Image height={40} width={40} src={ic3} alt='icon' />
           </div>
           <div>
-            <p>No of Docs Appr.....</p>
+            <p>No of Docs Approved</p>
             {loading ?
               <div className={styles.justify_center}><CircularProgress /></div> :
               <h6>{stats['No Of Docs Approved']}</h6>}

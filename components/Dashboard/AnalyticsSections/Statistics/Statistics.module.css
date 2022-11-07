@@ -45,8 +45,8 @@
 }
 
 .cont p {
-  font-size: var(--fs-24);
-  font-weight: var(--fw-400);
+  font-size: var(--fs-20);
+  font-weight: var(--fw-500);
   color: var(--primary-blue);
   text-align: center;
 }
