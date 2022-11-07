@@ -10,7 +10,7 @@ const ChangePassword = () => {
   const navigate = useRouter();
 
   const handleNav = () => {
-    navigate.push('/dashboard');
+    navigate.back();
   }
 
   const handleError = (err) => {
@@ -41,7 +41,7 @@ const ChangePassword = () => {
         });
     }
     else {
-      setPassErr("Password didn't matched");
+      setPassErr("Passwords do not match");
     }
   }
 
