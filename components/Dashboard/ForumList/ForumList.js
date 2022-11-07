@@ -198,8 +198,6 @@ const ForumList = ({ documents, setUpdated, updated, docId, setMessage, setDocId
     })
   }
 
-  // Checking second repo
-
   // useEffect(() => {
   //   replies.length && getNotifs((err, res) => {
   //     if (err) return handleError(err);
