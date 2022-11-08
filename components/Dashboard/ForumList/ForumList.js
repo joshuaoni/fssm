@@ -81,14 +81,14 @@ const ForumList = ({ documents, setUpdated, updated, docId, setMessage, setDocId
     console.log({ e: err });
   }
 
-  const handleSwitch = (confirmation, id) => {
+  const handleSwitch = (id) => {
     editTopicApproval(id, (err, res) => {
       if (err) return handleError(err);
       if (res !== null) {
         console.log({ res });
         if (res.data.message = 'Discussion Topic has been edited') {
           setMessage('Changes Saved!');
-          confirmation.style.display = 'flex';
+          document.querySelector('.m15').style.display = 'flex';
           setUpdate(!update);
         }
       }
@@ -314,10 +314,16 @@ const ForumList = ({ documents, setUpdated, updated, docId, setMessage, setDocId
                     <p>{dateArray2[i]}</p>
                   </div>
                   <div className={styles.two}>
-                    <AntSwitch
+                    {/* <AntSwitch
                       key={reactKey}
                       checked={layout === 2 ? true : layout === 4 && is_approved ? true : false}
                       onChange={() => { handleSwitch(document.querySelector('.m15'), id); }}
+                    /> */}
+                    <Switch
+                      key={reactKey}
+                      checked={is_approved ? true : false}
+                      onClick={() => { handleSwitch(id) }}
+                      inputProps={{ 'aria-label': 'controlled' }}
                     />
                   </div>
                   <div className={styles.two}>
