@@ -19,3 +19,8 @@
 .userInputField {
   width: 100%;
 }
+
+.fontBold > div > input {
+  color: black;
+  font-weight: 500;
+}

@@ -6,10 +6,11 @@ import styles from "./DatePickerComponent.module.css";
 const DatePickerComponent = ({ isStart }) => {
   const [dateOpen, setDateOpen] = useState(false);
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [previousDate, setPreviousDate] = useState(new Date(Date.now() - 7 * 24 * 60 * 60 * 1000))
+  const [previousDate, setPreviousDate] = useState(new Date(Date.now() - 7 * 24 * 60 * 60 * 1000));
+  const [bold, setBold] = useState(false);
   return (
     <DatePicker
-      className={styles.userInputField}
+      className={`${bold ? styles.fontBold : ""} ${styles.userInputField}`}
       clearable={true}
       open={dateOpen}
       maxDate={new Date()}
@@ -18,6 +19,7 @@ const DatePickerComponent = ({ isStart }) => {
       value={isStart ? previousDate : currentDate}
       onChange={(newValue) => {
         isStart ? setPreviousDate(newValue) : setCurrentDate(newValue);
+        setBold(true);
       }}
       renderInput={(params) => (
         <TextField
