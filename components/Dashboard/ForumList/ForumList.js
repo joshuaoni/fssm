@@ -316,7 +316,7 @@ const ForumList = ({ documents, setUpdated, updated, docId, setMessage, setDocId
                   <div className={styles.two}>
                     <AntSwitch
                       key={reactKey}
-                      defaultChecked={layout === 2 ? true : layout === 4 && is_approved ? true : false}
+                      checked={layout === 2 ? true : layout === 4 && is_approved ? true : false}
                       onChange={() => { handleSwitch(document.querySelector('.m15'), id); }}
                     />
                   </div>
