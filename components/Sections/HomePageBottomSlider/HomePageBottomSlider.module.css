@@ -1,8 +1,8 @@
 .container {
   height: max-content;
-  width: 96%;
-  margin-left: 2%;
-  margin-right: 2%;
+  width: 94%;
+  margin-left: 3%;
+  margin-right: 3%;
   margin-top: var(--s-80);
 }
 

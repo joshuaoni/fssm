@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
-const HomePageBottomSlider = () => {
+const HomePageBottomSlider = (props) => {
   const responsive = {
     desktop: {
       breakpoint: { max: 5500, min: 1024 },
@@ -24,7 +24,7 @@ const HomePageBottomSlider = () => {
     <>
       <div
         className={styles.container}>
-        <Carousel
+        {/* <Carousel
           swipeable={true}
           draggable={false}
           showDots={true}
@@ -36,6 +36,23 @@ const HomePageBottomSlider = () => {
           transitionDuration={500}
           containerClass="carousel-container"
           removeArrowOnDeviceType={["desktop", 'tablet', 'mobile']}
+          dotListClass="custom-dot-list-style"
+          itemClass="carousel-item-padding-40-px"
+          className={styles.cont}
+        > */}
+        <Carousel
+          swipeable={true}
+          draggable={true}
+          showDots={true}
+          responsive={responsive}
+          ssr={true} // means to render carousel on server-side.
+          infinite={true}
+          keyBoardControl={true}
+          customTransition="transform 500ms ease-in-out"
+          transitionDuration={500}
+          containerClass="carousel-container"
+          removeArrowOnDeviceType={["desktop", 'tablet', 'mobile']}
+          deviceType={props.deviceType}
           dotListClass="custom-dot-list-style"
           itemClass="carousel-item-padding-40-px"
           className={styles.cont}

@@ -1,10 +1,10 @@
 .container {
   display: grid;
-  align-items: end;
+  /* align-items: end; */
   grid-template-columns: 45% 47%;
   margin: var(--ma-homepage);
   margin-bottom: 0;
-  gap: 8%;
+  gap: 10%;
 }
 
 .title {

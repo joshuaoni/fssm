@@ -133,7 +133,7 @@ const HomePageTopSection = () => {
                   onClick={() => { route('googlesearch') }}
                 />
                 <SubmitButton
-                  title='Advance search'
+                  title='Advanced search'
                   style={styles.btn}
                   onClick={() => { route('advancedsearch'); }}
                 />
