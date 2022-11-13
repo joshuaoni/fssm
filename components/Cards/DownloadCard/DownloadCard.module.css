@@ -136,7 +136,7 @@
   background: var(--input-border-color);
   border-radius: var(--primary-border-radius);
   padding: var(--s-8);
-  width: var(--eighty);
+  width: 100%;
   margin-top: -20px;
   margin-bottom: var(--s-10);
 }
@@ -173,7 +173,7 @@
 }
 
 .extra {
-  width: var(--eighty);
+  width: 100%;
   margin-right: var(--twenty);
 }
 
@@ -207,6 +207,9 @@
   display: none;
 }
 
+.stakeholderText {
+  text-align: justify;
+}
 @media (max-width: 950px) {
   .title2 {
     display: block;

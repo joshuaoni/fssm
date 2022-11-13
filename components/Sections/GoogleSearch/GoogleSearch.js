@@ -17,6 +17,10 @@ const GoogleSearch = () => {
     setText(e.target.value);
   }
 
+  const handleClear = () => {
+    setText("");
+  }
+
   // const handleSubmit=()=>{
 
   // }
@@ -48,6 +52,9 @@ const GoogleSearch = () => {
                   }
                 />
               </FormControl>
+              <button onClick={handleClear} className={styles.crossBtn}>
+                <CloseIcon />
+              </button>
 
               <div
                 className={styles.btn}

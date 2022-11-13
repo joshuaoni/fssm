@@ -39,7 +39,7 @@ const DownloadCard = ({ tenders }) => {
           <div className={styles.top}>
             <p className={`${styles.heading} ${styles.title3}`}>{tenders?.title}</p>
             <a href={`https://swacchfssm.herokuapp.com${tenders?.attachment}`} rel="noreferrer" target="_blank">
-              <span className={styles.btn}>Download</span>
+              <span className={styles.btn}>View Document</span>
             </a>
           </div>
           <p className={styles.body}>{tenders?.description}</p>
@@ -75,7 +75,7 @@ const DownloadCard = ({ tenders }) => {
                 <div className={styles.row}>
                   <div>
                     <p>Stakeholder </p>
-                    <span>
+                    <span className={styles.stakeholderText}>
                       : {
                         tenders?.stake_holder?.map(({ stake_holderName }) => {
                           return stake_holderName + ', ';

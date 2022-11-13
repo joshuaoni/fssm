@@ -89,12 +89,15 @@
   justify-content: space-between;
   align-items: flex-end;
   margin-top: var(--fs-1rem);
+  /* width: 50%; */
 }
 
 .drop_btn {
   cursor: pointer;
   color: var(--red);
   font-weight: var(--fw-500);
+  margin-left: auto;
+  padding-left: auto;
 }
 
 .title {
@@ -119,7 +122,8 @@
   background: var(--input-border-color);
   border-radius: var(--primary-border-radius);
   padding: var(--s-8);
-  width: var(--eighty);
+  width: 100%;
+  margin-top: 15px;
 }
 
 .head {
@@ -139,11 +143,21 @@
   display: none;
 }
 
+.useContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.useCont {
+  width: 80%;
+}
+
 @media (max-width: 950px) {
-  .title2 {
+  .useCont {
+    width: 100%;
+  }
+
+  .useContainer {
     display: block;
-    margin-left: var(--s-18);
-    margin-top: var(--s-10);
   }
 
   .title3 {

@@ -78,7 +78,7 @@
 
 .btn:hover {
   background: var(--blue-hov);
-  box-shadow: 0 10px 5px -2px var(--shadow);
+  box-shadow: 0 6px 5px -2px var(--shadow);
 }
 
 .form {

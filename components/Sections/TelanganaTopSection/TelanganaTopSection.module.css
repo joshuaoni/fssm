@@ -90,11 +90,14 @@
   display: flex;
   justify-content: space-between;
   width: var(--hundred);
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .sub_heading {
   color: var(--white-color);
-  background: var(--transparent-pink);
+  background: var(--pink);
+  opacity: 70%;
   height: var(--sub-heading-h);
   display: flex;
   flex-direction: column;

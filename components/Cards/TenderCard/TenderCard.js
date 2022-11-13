@@ -3,6 +3,7 @@ import styles from './TenderCard.module.css';
 import pdf from '../../../assets/pdf.png';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@mui/material';
 
 const TenderCard = ({ searchData, theme, id, urban_rural, org, document_type, expiry_date, citation, description, title, value_chain, keywords, language, stake_holder, geography }) => {
   const [clicked, setClicked] = useState(true);
@@ -15,12 +16,12 @@ const TenderCard = ({ searchData, theme, id, urban_rural, org, document_type, ex
     if (e.classList.contains("active-dropdown")) {
       e.style.maxHeight = 0;
       e.classList.remove("active-dropdown");
-      u.style.display = 'block';
+      // u.style.display = 'block';
       s.style.justifyContent = 'space-between'
     } else {
       e.style.maxHeight = 'max-content';
       e.classList.add("active-dropdown");
-      u.style.display = 'none';
+      // u.style.display = 'none';
       s.style.justifyContent = 'flex-end'
     }
   }
@@ -46,7 +47,26 @@ const TenderCard = ({ searchData, theme, id, urban_rural, org, document_type, ex
             <p className={`${styles.title} ${styles.title3}`}>{title}</p>
             <button className={styles.btn} onClick={() => { handleNav(); }}>View Document</button>
           </div>
-          <p className={styles.body}>{description}</p>
+          <div className={styles.useContainer}>
+            <div className={styles.useCont}>
+              <p className={styles.body}>{description}</p>
+              <div className={styles.use_case}>
+                <p className={styles.head}>Use cases / Application</p>
+                <p>This document can be used by relevant stakeholders to
+                  compare different technologies in India with respect to -
+                  features, performance, application, O&M, challenges & costing</p>
+              </div>
+            </div>
+            <div id='show-btn' className={styles.show_btn}>
+              <p
+                className={`${clicked === true ? styles.drop_btn : styles.title2}`}
+                onClick={() => {
+                  dropDown(document.getElementById('drop' + `${id}`), document.getElementById('show-btn'), document.getElementById('use-case'));
+                  setClicked(!clicked);
+                }}
+              >{clicked ? 'Show More...' : 'Show Less...'}</p>
+            </div>
+          </div>
 
           <div id={'drop' + `${id}`} className='dropdown-content2'>
             <div className={styles.description}>
@@ -129,14 +149,8 @@ const TenderCard = ({ searchData, theme, id, urban_rural, org, document_type, ex
           </div>
 
           <div id='show-btn' className={styles.show_btn}>
-            <div id='use-case' className={styles.use_case}>
-              <p className={styles.head}>Use cases / Application</p>
-              <p>This document can be used by relevant stakeholders to
-                compare different technologies in India with respect to -
-                features, performance, application, O&M, challenges & costing</p>
-            </div>
             <p
-              className={styles.drop_btn}
+              className={`${clicked === false ? styles.drop_btn : styles.title2}`}
               onClick={() => {
                 dropDown(document.getElementById('drop' + `${id}`), document.getElementById('show-btn'), document.getElementById('use-case'));
                 setClicked(!clicked);

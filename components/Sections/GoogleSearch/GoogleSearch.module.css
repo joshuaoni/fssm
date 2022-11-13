@@ -13,6 +13,7 @@
 .left {
   display: flex;
   flex-grow: 100;
+  position: relative;
 }
 
 .btn {
@@ -73,6 +74,15 @@
   padding: var(--pa-title);
   padding-left: var(--s-150);
   background: var(--white-color);
+}
+
+.crossBtn {
+  position: absolute;
+  right: 60px;
+  top: 12px;
+  background-color: white;
+  border: none;
+  color: #08090a;
 }
 
 @media (max-width: 950px) {
