@@ -14,7 +14,7 @@
 .btn {
   background-color: var(--white-color);
   color: var(--black);
-  width: var(--fifty);
+  /* width: var(--fifty); */
   padding: var(--pa-btn);
   border-radius: var(--s-10);
   font-weight: var(--font-weight-bold);

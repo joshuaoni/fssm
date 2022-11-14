@@ -61,7 +61,9 @@ const Multiselect = ({ val, content, id, setData, data, placeholder }) => {
     <>
       <div
         className={styles.display}
-        onClick={() => { setDropped(!dropped) }}
+        tabindex="1"
+        onClick={() => dropped ? setDropped(false) : setDropped(true)}
+        onBlur={() => { setDropped(false) }}
       >
         <div></div>
         <span className={styles.span}>

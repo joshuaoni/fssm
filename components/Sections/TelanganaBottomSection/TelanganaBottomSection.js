@@ -48,22 +48,22 @@ const TelanganaBottomSection = () => {
         >
           <div className={id === 'telangana' ? styles.one : styles.five}>
             <Link href={id === 'telangana' ? 'https://swachhfssm.in/website/images/ta-1.jpg' : 'https://swachhfssm.in/website/images/ap-1.jpg'}>
-              <button className={styles.btn}>Click here</button>
+              <a target="_blank"><button className={styles.btn}>Click here</button></a>
             </Link>
           </div>
           <div className={id === 'telangana' ? styles.two : styles.six}>
             <Link href={id === 'telangana' ? 'https://swachhfssm.in/website/images/ta-2.jpg' : 'https://swachhfssm.in/website/images/ap-2.jpg'}>
-              <button className={styles.btn}>Click here</button>
+              <a target="_blank"><button className={styles.btn}>Click here</button></a>
             </Link>
           </div>
           <div className={id === 'telangana' ? styles.three : styles.seven}>
             <Link href={id === 'telangana' ? 'https://swachhfssm.in/website/images/ta-3.jpg' : 'https://swachhfssm.in/website/images/ap-3.jpg'}>
-              <button className={styles.btn}>Click here</button>
+              <a target="_blank"><button className={styles.btn}>Click here</button></a>
             </Link>
           </div>
           <div className={id === 'telangana' ? styles.four : styles.eight}>
             <Link href={id === 'telangana' ? 'https://swachhfssm.in/website/images/ta-4.jpg' : 'https://swachhfssm.in/website/images/ap-4.jpg'}>
-              <button className={styles.btn}>Click here</button>
+              <a target="_blank"><button className={styles.btn}>Click here</button></a>
             </Link>
           </div>
         </Carousel>

@@ -36,12 +36,12 @@ const TelanganaHeader = () => {
               </span>
 
               <div className={styles.div}>
-                <Link href='http://amrut.gov.in/content/'><a>
+                <Link href='http://amrut.gov.in/content/'><a target={"_blank"}>
                   <div className={styles.logo_3}></div>
                   <Image src={amrut} alt='logo3' height={74} width={139} />
                 </a></Link>
                 <div className={styles.space}></div>
-                <Link href='https://swachhbharat.mygov.in/'><a>
+                <Link href='https://swachhbharat.mygov.in/'><a target={"_blank"}>
                   <div className={styles.logo_4}></div>
                   <Image src={sbm} alt='logo4' height={73} width={166} />
                 </a></Link>

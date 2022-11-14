@@ -42,7 +42,7 @@ const Footer = () => {
       <footer className={styles.container}>
         <ComponentLayout>
           <div className={styles.left}>
-            <Link href='https://nfssmalliance.org/'><a><span className={styles.logo}></span>
+            <Link href='https://nfssmalliance.org/'><a target={"_blank"}><span className={styles.logo}></span>
               <Image src={nfssm} height={130} width={85} alt='nfssm logo' /></a></Link>
 
             <Link href='https://twitter.com/nfssmalliance?lang=en'><a><div className={styles.icon_cont}>

@@ -119,6 +119,10 @@
   align-items: center;
 }
 
+.date > div > div > button {
+  display: none;
+}
+
 @media (max-width: 950px) {
   .filter {
     padding: var(--fs-24) var(--s-30);

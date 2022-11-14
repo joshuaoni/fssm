@@ -5,7 +5,7 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { MobileDatePicker } from '@mui/x-date-pickers';
+import { DatePicker, MobileDatePicker } from '@mui/x-date-pickers';
 import { getStats } from '../../../../services/dashboardService';
 import CircularProgress from '@mui/material/CircularProgress';
 import { getOrgStackedGraph } from '../../../../services/dashboardService';
@@ -15,6 +15,8 @@ import Cookies from 'js-cookie';
 const ReactApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const StackedGraph = () => {
+  const [startDateOpen, setStartDateOpen] = useState(false);
+  const [endDateOpen, setEndDateOpen] = useState(false);
   const [value, setValue] = useState(null);
   const [error, setError] = useState(null);
   const [inputValue, setInputValue] = useState('');
@@ -332,12 +334,36 @@ const StackedGraph = () => {
           <div>
             <p className={styles.title}>Start Date</p>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <MobileDatePicker
+              {/* <MobileDatePicker
                 className={styles.date}
                 inputFormat="MM/DD/YYYY"
                 value={startDate}
                 onChange={handleStart}
                 renderInput={(params) => <TextField {...params} />}
+              /> */}
+              <DatePicker
+                className={styles.date}
+                clearable={true}
+                open={startDateOpen}
+                maxDate={new Date()}
+                onClose={() => setStartDateOpen(false)}
+                inputFormat="MM/DD/YYYY"
+                value={startDate}
+                onChange={(e) => {
+                  handleStart;
+                  setStartDate(e);
+                }}
+                placeholder={""}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    inputProps={{
+                      ...params.inputProps,
+                      placeholder: ""
+                    }}
+                    onClick={() => setStartDateOpen(true)}
+                  />
+                )}
               />
             </LocalizationProvider>
           </div>
@@ -345,12 +371,36 @@ const StackedGraph = () => {
           <div>
             <p className={styles.title}>End Date</p>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <MobileDatePicker
+              {/* <MobileDatePicker
                 className={styles.date}
                 inputFormat="MM/DD/YYYY"
                 value={endDate}
                 onChange={handleEnd}
                 renderInput={(params) => <TextField {...params} />}
+              /> */}
+              <DatePicker
+                className={styles.date}
+                clearable={true}
+                open={endDateOpen}
+                maxDate={new Date()}
+                onClose={() => setEndDateOpen(false)}
+                inputFormat="MM/DD/YYYY"
+                value={endDate}
+                onChange={(e) => {
+                  handleEnd;
+                  setEndDate(e);
+                }}
+                placeholder={""}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    inputProps={{
+                      ...params.inputProps,
+                      placeholder: ""
+                    }}
+                    onClick={() => setEndDateOpen(true)}
+                  />
+                )}
               />
             </LocalizationProvider>
           </div>

@@ -15,7 +15,7 @@ const GetInvolvedCard = ({ id, text, title, btn }) => {
         </div>
         <p className={styles.head}>{title}</p>
         <p className={styles.body}>{text}{id === 3 ? <br /> : null}{id === 3 ? getInvolvedText.text[3] : null}</p>
-        <Link href={id === 1 ? 'https://twitter.com/nfssmalliance?lang=en' : ''}><a><div
+        <Link href={id === 1 ? 'https://twitter.com/nfssmalliance?lang=en' : ''}><a target={id === 1 ? "_blank" : ""}><div
           className={styles.btn}
           data-modal="myModal1"
           onClick={() => {

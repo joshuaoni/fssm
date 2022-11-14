@@ -59,6 +59,7 @@
 
 .text_cont {
   width: var(--hundred);
+  margin-top: var(--fs-14);
 }
 
 .textarea {
@@ -84,7 +85,10 @@
   font-size: var(--fs-14);
   color: var(--black);
   font-weight: var(--fw-400);
-  margin-bottom: var(--fs-14);
+}
+
+.error {
+  color: #c30000;
 }
 
 .btn_cont {

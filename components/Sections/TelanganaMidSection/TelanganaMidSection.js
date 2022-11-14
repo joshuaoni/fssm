@@ -24,7 +24,7 @@ const TelanganaMidSection = () => {
               <p>{id === 'telangana' ? `The Telangana State Government in India's FSSM journey is one of the forerunners, championing gender inclusive sanitation, worker safety and innovations in WSH.` : `Steadily heading towards its goal to ensure 100% safe treatment of faecal sludge, championing behavioural transformation among its citizens and nurturing entrepreneurs across the sector.`}
               </p>
               <div className={styles.content}></div>
-              <Link href={id === 'telangana' ? 'https://nfssmalliance.org/state-stories/telangana.html' : 'https://nfssmalliance.org/state-stories/andhra-pradesh.html'}><a>
+              <Link href={id === 'telangana' ? 'https://nfssmalliance.org/state-stories/telangana.html' : 'https://nfssmalliance.org/state-stories/andhra-pradesh.html'}><a target={"_blank"}>
                 <span className={styles.btn}>View State&apos;s FSSM Journey</span>
               </a></Link>
             </div>

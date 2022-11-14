@@ -8,14 +8,17 @@ import Cookies from 'js-cookie';
 import SiteBackground from '../components/Sections/SiteBackground/SiteBackground';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import useScrollRestoration from '../components/useScrollRestoration';
 
 
 axios.defaults.baseURL = process.env.NEXT_PUBLIC_BASE_URL;
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, router }) {
   useEffect(() => {
     axiosInstance.defaults.headers.common["Authorization"] = Cookies.get('access') ? 'Bearer ' + Cookies.get('access') : null;
   }, [])
+
+  useScrollRestoration(router);
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
