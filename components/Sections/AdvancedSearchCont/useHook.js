@@ -206,11 +206,11 @@ export default function CustomizedHook({ setData }) {
             <StyledTag key={index} label={option.title} {...getTagProps({ index })} />
           ))}
           <input
-            // onKeyDown={(e) => {
-            //   if (e.key === "Enter") {
-            //     getInputProps().onMouseDown();
-            //   }
-            // }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                getInputProps().onMouseDown();
+              }
+            }}
             className={styles.input}
             placeholder={value.length ? '' : 'Search for Keywords, Themes, Subcategories, Stakeholders, Value chain, State...'}
             {...getInputProps()} />
