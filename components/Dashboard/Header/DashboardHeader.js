@@ -66,7 +66,7 @@ const DashboardHeader = () => {
               onClick={() => { setClicked(!clicked); }}
               sx={{ cursor: 'pointer', color: 'white', width: '40px', height: '40px' }} />
           </span>
-          <Image src={swachh} height={66} width={116} alt='logo' />
+          <Link href="/"><Image src={swachh} height={66} width={116} alt='logo' /></Link>
         </div>
         <div className={styles.right}>
           <button onClick={() => { handleNav(); }} className={styles.btn}>Go to website</button>
