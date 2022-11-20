@@ -15,6 +15,11 @@ import ViewDocument from '../ViewDocument/ViewDocument';
 import AlertCard from '../AlertCard/AlertCard';
 import Cookies from 'js-cookie';
 import { Pagination } from '@mui/material';
+import { GrDescend } from "react-icons/gr";
+import { GrAscend } from "react-icons/gr";
+import { RiArrowUpDownLine } from "react-icons/ri";
+import pdf from "../../../assets/pdf.png"
+import Image from 'next/image';
 
 const DocumentsList = ({ updating, setUpdating, documents, dateArray }) => {
   const [number, setNumber] = useState(10);
@@ -38,6 +43,102 @@ const DocumentsList = ({ updating, setUpdating, documents, dateArray }) => {
     chips: [],
     theme: ''
   });
+  const [serialIcon, setSerialIcon] = useState("true");
+  const [titleIcon, setTitleIcon] = useState("true");
+  const [descIcon, setDescIcon] = useState("true");
+  const [dateIcon, setDateIcon] = useState("true");
+
+
+
+  const [sortConfig, setSortConfig] = useState(null);
+
+  const sortedItems = React.useMemo(() => {
+    let sortableItems = [...currentRecords];
+    if (sortConfig !== null) {
+      sortableItems.sort((a, b) => {
+        if (a[sortConfig.key] < b[sortConfig.key]) {
+          return sortConfig.direction === 'ascending' ? -1 : 1;
+        }
+        if (a[sortConfig.key] > b[sortConfig.key]) {
+          return sortConfig.direction === 'ascending' ? 1 : -1;
+        }
+        return 0;
+      });
+    }
+    return sortableItems;
+    console.log(sortableItems)
+  }, [currentRecords, sortConfig]);
+
+  const requestSort = key => {
+    let direction = 'ascending';
+    if (sortConfig && sortConfig.key === key && sortConfig.direction === 'ascending') {
+      direction = 'descending';
+    }
+    setSortConfig({ key, direction });
+  }
+
+  const handleSerial = () => {
+    if (serialIcon === "true") {
+      setSerialIcon("ascending");
+    }
+    else if (serialIcon === "ascending") {
+      setSerialIcon("descending");
+    }
+    else {
+      setSerialIcon("ascending");
+    }
+    requestSort('id')
+  }
+  const handleTitle = () => {
+    if (titleIcon === "true") {
+      setTitleIcon("ascending");
+    }
+    else if (titleIcon === "ascending") {
+      setTitleIcon("descending");
+    }
+    else {
+      setTitleIcon("ascending");
+    }
+    requestSort('title')
+  }
+  const handleDesc = () => {
+    if (descIcon === "true") {
+      setDescIcon("ascending");
+    }
+    else if (descIcon === "ascending") {
+      setDescIcon("descending");
+    }
+    else {
+      setDescIcon("ascending");
+    }
+    requestSort('description')
+  }
+  const handleDate = () => {
+    if (dateIcon === "true") {
+      setDateIcon("ascending");
+    }
+    else if (dateIcon === "ascending") {
+      setDateIcon("descending");
+    }
+    else {
+      setDateIcon("ascending");
+    }
+    requestSort('createdOn')
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   const router = useRouter();
 
@@ -194,35 +295,46 @@ const DocumentsList = ({ updating, setUpdating, documents, dateArray }) => {
 
         <div className={styles.cont}>
           <div className={styles.heading}>
-            <div className={styles.one}>
+            <div onClick={handleSerial} className={styles.one}>
               <p>S.NO</p>
+              <div className={styles.icon}>{serialIcon === "true" ? <RiArrowUpDownLine /> : serialIcon === "ascending" ? <GrAscend /> : <GrDescend />}</div>
             </div>
             <div className={styles.one}>
               <p>Thumbnail</p>
+              <div className={styles.icon}><RiArrowUpDownLine /></div>
             </div>
-            <div className={styles.two}>
+            <div onClick={handleTitle} className={styles.two}>
               <p>Title</p>
+              <div className={styles.icon}>{titleIcon === "true" ? <RiArrowUpDownLine /> : titleIcon === "ascending" ? <GrAscend /> : <GrDescend />}</div>
             </div>
-            <div className={styles.three}>
+            <div onClick={handleDesc} className={styles.three}>
               <p>Document Name</p>
+              <div className={styles.icon}>{descIcon === "true" ? <RiArrowUpDownLine /> : descIcon === "ascending" ? <GrAscend /> : <GrDescend />}</div>
             </div>
-            <div className={styles.four}>
+            <div onClick={handleDate} className={styles.four}>
               <p>Created Date</p>
+              <div className={styles.icon}>{dateIcon === "true" ? <RiArrowUpDownLine /> : dateIcon === "ascending" ? <GrAscend /> : <GrDescend />}</div>
             </div>
             <div className={styles.five}>
               <p>Action</p>
+              <div className={styles.icon}><RiArrowUpDownLine /></div>
             </div>
           </div>
           {currentRecords?.length ?
-            currentRecords.map(({ id, description, title }, i) => {
+            sortedItems.map(({ id, description, title, createdOn }, i) => {
               return (
                 <div key={id} className={i % 2 !== 0 ? styles.row : styles.row2}>
                   <div className={styles.one}>
                     <p>{i + 1 + number * (currentPage - 1)}</p>
+                    {/* <p>{id - 636 + number * (currentPage - 1)}</p> */}
                   </div>
                   <div className={styles.one}>
                     <div className={styles.pdf}>
-                      pdf
+                      <Image
+                        src={pdf}
+                        alt="Picture of pdf"
+                        width={47}
+                        height={54} />
                     </div>
                   </div>
                   <div className={styles.two}>
@@ -232,7 +344,8 @@ const DocumentsList = ({ updating, setUpdating, documents, dateArray }) => {
                     <p>{description}</p>
                   </div>
                   <div className={styles.four}>
-                    <p>{dateArray[i]}</p>
+                    {/* <p>{dateArray[i]}</p> */}
+                    <p>{createdOn.split("T")[0]} {createdOn.split("T")[1].split("+")[0].split(":")[0] > 12 ? `${createdOn.split("T")[1].split("+")[0].split(":")[0] - 12}` : `${createdOn.split("T")[1].split("+")[0].split(":")[0]}`}:{createdOn.split("T")[1].split("+")[0].split(":")[1]} {createdOn.split("T")[1].split("+")[0].split(":")[0] > 12 ? "PM" : "AM"}</p>
                   </div>
                   <div className={styles.five}>
                     {!(Cookies.get('isAdmin') !== 'true' && router.pathname === '/documents') && <div
@@ -275,7 +388,7 @@ const DocumentsList = ({ updating, setUpdating, documents, dateArray }) => {
           }
         </div>
       </div>
-      <p className={styles.results}>Showing {number} of {list?.length} entries</p>
+      <p className={styles.results}>Showing {list?.length ? `${list?.length}` : `${list?.length}`} of {number} enties</p>
       <Pagination
         count={nPages}
         variant="outlined"

@@ -37,11 +37,21 @@
 }
 
 .heading > div {
-  padding: var(--fs-14) var(--size-3);
+  /* padding: var(--fs-14) var(--size-3); */
   display: flex;
   justify-content: center;
   text-align: center;
   border-right: 1px solid var(--d-bg);
+}
+.heading > div > p {
+  margin-top: var(--fs-14);
+  margin-bottom: var(--fs-14);
+  width: 90%;
+  text-align: center;
+}
+
+.heading > div > div {
+  margin-top: auto;
 }
 
 .cont {
@@ -51,7 +61,7 @@
 }
 
 .one {
-  width: var(--s-40);
+  width: 60px;
 }
 
 .two {

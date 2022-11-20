@@ -7,6 +7,7 @@ import { getUnmappedDocs, deleteDocs } from '../../../services/documentMappingSe
 import CircularProgress from '@mui/material/CircularProgress';
 import { useRouter } from 'next/router';
 import AlertCard from '../AlertCard/AlertCard';
+import pdf from "../../../assets/pdf.png"
 
 const DocumentMappingCont = () => {
   const [unmapped, setUnmapped] = useState([]);
@@ -25,7 +26,7 @@ const DocumentMappingCont = () => {
 
   useEffect(() => {
     getUnmappedDocs((err, res) => {
-      if (err) return handleError(err)
+      // if (err) return handleError(err)
       if (res !== null) {
         setLoading(false);
         console.log({ r: res })
@@ -103,8 +104,12 @@ const DocumentMappingCont = () => {
                           <p>{i + 1}</p>
                         </div>
                         <div className={styles.two}>
-                          <div className={styles.pdf}>
-                            pdf
+                          <div>
+                            <Image
+                              src={pdf}
+                              alt="Picture of pdf"
+                              width={47}
+                              height={54} />
                           </div>
                         </div>
                         <div className={styles.three}>

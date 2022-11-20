@@ -54,22 +54,34 @@
 }
 
 .heading > div {
-  padding-top: var(--fs-14);
-  padding-bottom: var(--fs-14);
+  /* padding-top: var(--fs-14);
+  padding-bottom: var(--fs-14); */
   display: flex;
   justify-content: center;
+  cursor: pointer;
+}
+
+.heading > div > p {
+  margin-top: var(--fs-14);
+  margin-bottom: var(--fs-14);
+  width: 90%;
+  text-align: center;
+}
+
+.heading > div > div {
+  margin-top: auto;
 }
 
 .one {
-  width: 7%;
+  width: 10%;
 }
 
 .two {
-  width: 25%;
+  width: 24%;
 }
 
 .three {
-  width: 33%;
+  width: 31%;
 }
 
 .four {
@@ -78,6 +90,10 @@
 
 .five {
   width: 12%;
+}
+
+.icon {
+  margin-left: 5px;
 }
 
 .view {
@@ -112,10 +128,10 @@
   padding: var(--fs-14) var(--size-3);
 }
 
-.pdf {
+/* .pdf {
   background: var(--white-color);
   padding: var(--s-10);
-}
+} */
 
 .btn {
   height: var(--fs-24);

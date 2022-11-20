@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { FormControl, MenuItem, Select } from '@mui/material';
+import { FormControl, MenuItem, Pagination, Select } from '@mui/material';
 import styles from './UserCategoriesList.module.css';
 import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
@@ -19,7 +19,19 @@ const UserCategoriesList = ({ setMessage, loading2, setLoading2, update, setUpda
   const [index, setIndex] = useState(0);
   const [updated, setUpdated] = useState([]);
   const [current, setCurrent] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [currentRecords, setCurrentRecords] = useState([]);
   const [userProfile, setUserProfile] = useState('');
+  const [nPages, setNPages] = useState(1);
+
+  useEffect(() => {
+    const indexOfLastRecord = currentPage * number;
+    const indexOfFirstRecord = indexOfLastRecord - number;
+    const records = list.slice(indexOfFirstRecord, indexOfLastRecord);
+    setCurrentRecords(records);
+    const pageCount = Math.ceil(list.length / number);
+    setNPages(pageCount);
+  }, [currentPage, list, number])
 
   const handleClick = (profile) => {
     const newState = addItemsText.filter(({ title }) => {
@@ -123,7 +135,7 @@ const UserCategoriesList = ({ setMessage, loading2, setLoading2, update, setUpda
               <p>Action</p>
             </div>
           </div>
-          {list.map(({ id, user_profile, display_order, is_hidden }, i) => {
+          {currentRecords.map(({ id, user_profile, display_order, is_hidden }, i) => {
             return (
               <div key={id} className={i % 2 !== 0 ? styles.row : styles.row2}>
                 <div className={styles.one}>
@@ -178,6 +190,16 @@ const UserCategoriesList = ({ setMessage, loading2, setLoading2, update, setUpda
           }
         </div>
       </div> : null}
+      <p className={styles.results}>Showing {list?.length} of {number} enties</p>
+      <Pagination
+        count={nPages}
+        variant="outlined"
+        shape="rounded"
+        page={currentPage}
+        color='primary'
+        onChange={(e, val) => {
+          setCurrentPage(val);
+        }} />
 
       <div id="myModal" className='modal2 m7'>
         <div
@@ -204,10 +226,11 @@ const UserCategoriesList = ({ setMessage, loading2, setLoading2, update, setUpda
                 validationSchema={Yup.object({
                   user_profile: Yup.string()
                     .required('Required')
-                    // .test('is value valid?', 'Characters must consist of letters only', (val) => {
-                    //   return /^(?![\s.]+$)[a-zA-Z\s.]*$/.test(val);
-                    // })
-                    .min(4, '4 or more characters'),
+                  // .test('is value valid?', 'Characters must consist of letters only', (val) => {
+                  //   return /^(?![\s.]+$)[a-zA-Z\s.]*$/.test(val);
+                  // })
+                  // .min(4, '4 or more characters')
+                  ,
                   display_order: Yup.string()
                     .required('Required')
                     .test('is value a number?', 'Display order must be a number', (val) => {

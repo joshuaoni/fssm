@@ -88,7 +88,7 @@ const ListDocuments = () => {
     let wb = XLSX.utils.book_new();
     let ws = XLSX.utils.json_to_sheet(excelData);
     XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-    XLSX.writeFile(wb, `Escel_Sheet_${date.toString().replaceAll(' ', '_').replace('_(West_Africa_Standard_Time)', '')}.xlsx`);
+    XLSX.writeFile(wb, `Excel_Sheet_${date.toString().replaceAll(' ', '_').replace('_(West_Africa_Standard_Time)', '')}.xlsx`);
   }
 
 
