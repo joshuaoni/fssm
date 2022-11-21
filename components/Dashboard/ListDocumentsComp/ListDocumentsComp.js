@@ -399,8 +399,8 @@ const ListDocumentsComp = ({ dateArray, documents }) => {
                 return (
                   <div key={id} className={i % 2 !== 0 ? styles.row : styles.row2}>
                     <div className={styles.one}>
-                      {/* <p>{i + 1 + number * (currentPage - 1)}</p> */}
-                      <p>{id - 636 + number * (currentPage - 1)}</p>
+                      <p>{i + 1 + number * (currentPage - 1)}</p>
+                      {/* <p>{id - 636 + number * (currentPage - 1)}</p> */}
                     </div>
                     <div className={styles.two}>
                       <div>

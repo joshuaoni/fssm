@@ -10,6 +10,7 @@ import Cookies from 'js-cookie';
 const BulkUploadCont = () => {
   const [uploadedFiles, setUploadedFiles] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [message, setMessage] = useState("");
 
   const router = useRouter();
 
@@ -55,6 +56,7 @@ const BulkUploadCont = () => {
           setLoading(false);
           console.log({ r: res.data.message })
           if (res.data.message === 'Documents have been added') {
+            setMessage("Documents have been added")
             name.forEach(item => {
               item.classList.add('onroute-desktop');
             })
@@ -76,6 +78,11 @@ const BulkUploadCont = () => {
       return i === index;
     })
     handleSubmit(newState, [start], [end], [name], confirmation);
+  }
+
+  const handleNoData = () => {
+    setMessage("Documents have not been added")
+    document.querySelector('.m15').style.display = "flex";
   }
 
   return (
@@ -104,7 +111,7 @@ const BulkUploadCont = () => {
                     document.querySelectorAll('.start'),
                     document.querySelectorAll('.end'),
                     document.querySelectorAll('.name'),
-                    document.querySelector('.m15')) : "";
+                    document.querySelector('.m15')) : handleNoData();
               }}
             >Start Upload</span>
             <span
@@ -151,7 +158,7 @@ const BulkUploadCont = () => {
         </div>
       </div>
 
-      <AlertCard message='Documents have been added' />
+      <AlertCard message={message} />
     </>
   )
 }
