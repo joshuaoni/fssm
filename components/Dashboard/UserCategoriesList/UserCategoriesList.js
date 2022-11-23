@@ -190,7 +190,7 @@ const UserCategoriesList = ({ setMessage, loading2, setLoading2, update, setUpda
           }
         </div>
       </div> : null}
-      <p className={styles.results}>Showing {list?.length} of {number} enties</p>
+      <p className={styles.results}>Showing {number > list?.length ? list?.length : currentPage === 1 ? number : (list?.length - number * (currentPage - 1))} of {list?.length} enties</p>
       <Pagination
         count={nPages}
         variant="outlined"

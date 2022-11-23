@@ -74,6 +74,7 @@ const FaqNavigation = () => {
         {loading ?
           <div className={styles.justify_center}><CircularProgress /></div> :
           <Button
+            className="pdf-download"
             title='PDF Download'
             style={styles.btn}
             onClick={() => {
@@ -87,4 +88,6 @@ const FaqNavigation = () => {
   )
 }
 
-export default FaqNavigation 
+export default FaqNavigation
+
+// env added
