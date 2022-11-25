@@ -74,7 +74,7 @@ const FaqNavigation = () => {
         {loading ?
           <div className={styles.justify_center}><CircularProgress /></div> :
           <Button
-            className="pdf-download"
+            id="pdf-download"
             title='PDF Download'
             style={styles.btn}
             onClick={() => {
