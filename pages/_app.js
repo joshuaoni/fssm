@@ -33,6 +33,19 @@ function MyApp({ Component, pageProps, router }) {
     TagManager.initialize(tagManagerArgs)
   }, [])
 
+  //Enables Google Search Console 
+  useEffect(() => {
+    (function () {
+      var cx = '8583c21b9271e4cf9';
+      var gcse = document.createElement('script');
+      gcse.type = 'text/javascript';
+      gcse.async = true;
+      gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(gcse, s);
+    })();
+  }, [])
+
 
   useScrollRestoration(router);
 
