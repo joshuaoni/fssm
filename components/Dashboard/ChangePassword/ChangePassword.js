@@ -61,7 +61,7 @@ const ChangePassword = () => {
               required
               id="pass"
               minLength="6"
-              maxLength="20" c
+              maxLength="20"
               className={styles.input}
               type="password"
               placeholder='New Password'
