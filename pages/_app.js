@@ -39,9 +39,9 @@ function MyApp({ Component, pageProps, router }) {
 
   return (
     <>
-      <Head>
+      {/* <Head>
         <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" />
-      </Head>
+      </Head> */}
 
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <SiteBackground>
