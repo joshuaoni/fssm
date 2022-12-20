@@ -10,7 +10,6 @@ import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import useScrollRestoration from '../components/useScrollRestoration';
 import TagManager from 'react-gtm-module'
-import Head from 'next/head'
 
 
 
@@ -38,17 +37,11 @@ function MyApp({ Component, pageProps, router }) {
   useScrollRestoration(router);
 
   return (
-    <>
-      {/* <Head>
-        <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" />
-      </Head> */}
-
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <SiteBackground>
-          <Component {...pageProps} />
-        </SiteBackground>
-      </LocalizationProvider>
-    </>
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <SiteBackground>
+        <Component {...pageProps} />
+      </SiteBackground>
+    </LocalizationProvider>
   )
   // return <Component {...pageProps} />
 }
