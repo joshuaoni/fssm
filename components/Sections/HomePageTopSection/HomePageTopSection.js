@@ -56,6 +56,7 @@ const StyledMenu = styled((props) => (
 const HomePageTopSection = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
+  const [searchQuery, setSearchQuery] = useState('')
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -65,10 +66,46 @@ const HomePageTopSection = () => {
     setAnchorEl(null);
   };
 
+  const searchMenuOptions = [
+    {
+      value: '',
+      hidden: true,
+      label: 'Search FSSM Docs'
+    },
+    {
+      value: 'One',
+      hidden: false,
+      label: 'One'
+
+    },
+    {
+      value: 'Two',
+      hidden: false,
+      label: 'Two',
+
+    },
+    {
+      value: 'Three',
+      hidden: false,
+      label: 'Three',
+
+    },
+  ]
+
   const navigate = useRouter();
 
+  //Incase of "googlesearch" pass url params 
   const route = (path) => {
-    navigate.push(`/${path}`);
+    <Link href={path}></Link>
+    if (path === 'googlesearch') {
+      navigate.push({
+        pathname: `/${path}/`,
+        query: { q: `${searchQuery}` }
+      });
+    } else {
+      navigate.push(`/${path}`)
+    }
+
   }
 
   return (
@@ -119,18 +156,19 @@ const HomePageTopSection = () => {
                     </MenuItem>
                   </StyledMenu>
                 </div> */}
-                <select defaultValue='' className={`${styles.input} form-select`} aria-label="Default select example">
-                  <option hidden value=''>Search FSSM Docs</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
+                <select value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className={`${styles.input} form-select`} aria-label="Default select example">
+                  {
+                    searchMenuOptions.map(option =>
+                      <option hidden={option.hidden} value={option.value}>{option.label}</option>
+                    )
+                  }
                 </select>
               </div>
               <div className={styles.btn_cont}>
                 <SubmitButton
                   title='Search'
                   style={styles.btn}
-                  onClick={() => { route('googlesearch') }}
+                  onClick={() => { route('googlesearch'); }}
                 />
                 <SubmitButton
                   title='Advanced search'
