@@ -9,9 +9,12 @@ import SearchIcon from '@mui/icons-material/Search';
 import Link from 'next/link';
 import Image from 'next/image';
 import search from '../../../assets/searc.png';
+import { useRouter } from 'next/router';
 
 const GoogleSearch = () => {
   const [text, setText] = useState('');
+  const router = useRouter()
+  const param = router.query.q
 
   const handleChange = (e) => {
     setText(e.target.value);
@@ -20,6 +23,7 @@ const GoogleSearch = () => {
   const handleClear = () => {
     setText("");
   }
+
 
   // const handleSubmit=()=>{
 
@@ -32,9 +36,10 @@ const GoogleSearch = () => {
         <section>
           <div className={styles.form}>
             <div className={styles.left}>
-              <FormControl variant="outlined" className={styles.input}>
+              <div class="gcse-searchbox" data-queryParameterName="q" data-gname='site-search' />
+              {/* <FormControl variant="outlined" className={styles.input}>
                 <OutlinedInput
-                  value={text}
+                  value={param}
                   onChange={handleChange}
                   endAdornment={
                     text.length ?
@@ -51,24 +56,22 @@ const GoogleSearch = () => {
                       null
                   }
                 />
-              </FormControl>
-              <button onClick={handleClear} className={styles.crossBtn}>
+              </FormControl> */}
+              {/* <button onClick={handleClear} className={styles.crossBtn}>
                 <CloseIcon />
-              </button>
+              </button> */}
 
-              <div
+              {/* <div
                 className={styles.btn}
-                onClick={() => {
-                  handleSubmit();
-                }}
               >
                 <Image src={search} height={24} width={24} alt='icon' />
-              </div>
+              </div> */}
             </div>
 
             <Link href='/advancedsearch'><a><div className={styles.btn2}>Advanced Search</div></a></Link>
           </div>
         </section>
+        <div className='gcse-searchresults' data-gname='site-search'></div>
       </div>
     </>
   )
