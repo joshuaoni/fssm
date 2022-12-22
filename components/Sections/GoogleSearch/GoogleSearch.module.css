@@ -16,6 +16,10 @@
   position: relative;
 }
 
+.left > div {
+  width: var(--hundred);
+}
+
 .btn {
   height: var(--s-50);
   border-radius: var(--s-8);

@@ -36,7 +36,7 @@ const GoogleSearch = () => {
         <section>
           <div className={styles.form}>
             <div className={styles.left}>
-              <div class="gcse-searchbox" data-queryParameterName="q" data-gname='site-search' />
+              <div className="gcse-searchbox" data-queryparametername="q" data-gname='site-search' />
               {/* <FormControl variant="outlined" className={styles.input}>
                 <OutlinedInput
                   value={param}

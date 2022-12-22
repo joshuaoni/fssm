@@ -64,11 +64,13 @@ button:hover {
 
 input[type="number"] {
   -moz-appearance: textfield;
+  appearance: textfield;
 }
 
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
+  appearance: none;
   margin: 0;
 }
 
@@ -87,6 +89,12 @@ input[type="number"]::-webkit-inner-spin-button {
 #text2::-webkit-input-placeholder,
 #text3:-webkit-input-placeholder {
   font-size: var(--s-20);
+}
+
+.gsc-search-button-v2 {
+  padding: var(--s-10) var(--s-18) !important;
+  border-radius: var(--size-5) !important;
+  background: var(--blue) !important;
 }
 
 .carousel_select {

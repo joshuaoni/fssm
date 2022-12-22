@@ -158,8 +158,8 @@ const HomePageTopSection = () => {
                 </div> */}
                 <select value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className={`${styles.input} form-select`} aria-label="Default select example">
                   {
-                    searchMenuOptions.map(option =>
-                      <option hidden={option.hidden} value={option.value}>{option.label}</option>
+                    searchMenuOptions.map((option, i) =>
+                      <option key={i} hidden={option.hidden} value={option.value}>{option.label}</option>
                     )
                   }
                 </select>
